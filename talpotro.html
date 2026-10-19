@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>তালপত্র ফাউন্ডেশন | Talpotro Foundation</title>
+  <!-- Google Fonts: Hind Siliguri & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Hind Siliguri', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            asGold: '#D4AF37',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+  <!-- Top Announcement & Contact Bar -->
+  <div class="bg-brand-900 text-white text-xs py-2 px-4 border-b border-brand-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-asGold"></i> <span data-i18n="topReg">সরকারী নিবন্ধিত অরাজনৈতিক ও অলাভজনক সামাজিক সংগঠন</span></span>
+        <span class="hidden md:flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5 text-asGold"></i> <span data-i18n="topMembers">১০০০+ সক্রিয় সদস্য</span></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5 text-asGold"></i> +880 1700-000000</span>
+        <span class="hidden sm:inline text-gray-400">|</span>
+        <button onclick="toggleLanguage()" class="bg-asGold hover:bg-yellow-500 text-gray-900 font-bold text-xs px-2.5 py-0.5 rounded transition flex items-center gap-1">
+          <i data-lucide="globe" class="w-3 h-3"></i>
+          <span id="langBtnText">EN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navbar (As-Sunnah Foundation Replica Layout) -->
+  <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="bg-brand-600 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center">
+          <i data-lucide="trees" class="w-7 h-7"></i>
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold text-brand-900 leading-none tracking-tight">তালপত্র ফাউন্ডেশন</h1>
+          <p class="text-[11px] text-gray-500 mt-1 font-semibold uppercase tracking-wider">Talpotro Foundation</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 font-semibold text-sm text-gray-700">
+        <a href="#home" class="text-brand-600 font-bold border-b-2 border-brand-600 pb-0.5" data-i18n="navHome">হোম</a>
+        <a href="#about" class="hover:text-brand-600 transition" data-i18n="navAbout">আমাদের কথা</a>
+        <a href="#activities" class="hover:text-brand-600 transition" data-i18n="navActivities">কার্যক্রম</a>
+        <a href="#projects" class="hover:text-brand-600 transition" data-i18n="navProjects">প্রকল্পসমূহ</a>
+        <a href="#gallery" class="hover:text-brand-600 transition" data-i18n="navGallery">গ্যালারি</a>
+        <a href="#involved" class="hover:text-brand-600 transition" data-i18n="navInvolved">যুক্ত হোন</a>
+        <a href="#blogs" class="hover:text-brand-600 transition" data-i18n="navBlogs">ব্লগ</a>
+        <a href="#notice" class="hover:text-brand-600 transition" data-i18n="navNotice">নোটিশ</a>
+        <a href="#contact" class="hover:text-brand-600 transition" data-i18n="navContact">যোগাযোগ</a>
+      </nav>
+
+      <!-- Donate Action Button -->
+      <div class="flex items-center gap-3">
+        <button onclick="openModal('সাধারণ অনুদান')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition flex items-center gap-2 text-sm">
+          <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+          <span data-i18n="btnDonate">দান করুন</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-gray-900 text-white py-12 lg:py-16 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-brand-800/80 border border-brand-600/50 px-3.5 py-1.5 rounded-full text-xs font-semibold text-asGold">
+          <i data-lucide="sprout" class="w-4 h-4"></i>
+          <span data-i18n="heroTag">তাল গাছ রোপণ দিয়ে শুরু, এখন সমগ্র সমাজসেবায়</span>
+        </div>
+        
+        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+          <span data-i18n="heroTitle1">সৃষ্টিকর্তার সন্তুষ্টি অর্জনে</span> <br>
+          <span class="text-asGold" data-i18n="heroTitle2">মানুষ ও প্রকৃতির সেবায় আমরা</span>
+        </h2>
+        
+        <p class="text-gray-200 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="heroDesc">
+          তালপত্র ফাউন্ডেশন ১০০০+ নিবেদিতপ্রাণ সদস্যের একটি সামাজিক পরিবার। আমরা বৃক্ষরোপণ, দুর্যোগে ত্রাণ বিতরণ, শীতবস্ত্র উপহার, বিনামূল্যে মেহেদী উৎসব এবং শিশুদের শিক্ষায় সহায়তা প্রদানে নিরলস কাজ করে যাচ্ছি।
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#about" class="bg-asGold hover:bg-yellow-500 text-gray-900 font-extrabold px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2 text-sm">
+            <span data-i18n="btnKnowMore">আমাদের সম্পর্কে জানুন</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#projects" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold px-6 py-3 rounded-lg backdrop-blur-sm transition text-sm flex items-center gap-2">
+            <i data-lucide="grid" class="w-4 h-4"></i>
+            <span data-i18n="btnAllActivities">সকল কার্যক্রম</span>
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-3 pt-6 border-t border-brand-700/60 max-w-lg">
+          <div class="bg-brand-800/40 p-3 rounded-lg border border-brand-700/40 text-center">
+            <div class="text-xl font-bold text-asGold">১০০০+</div>
+            <div class="text-xs text-gray-300" data-i18n="statMembers">সক্রিয় সদস্য</div>
+          </div>
+          <div class="bg-brand-800/40 p-3 rounded-lg border border-brand-700/40 text-center">
+            <div class="text-xl font-bold text-asGold">১০০০টি</div>
+            <div class="text-xs text-gray-300" data-i18n="statOlive">জলপাই গাছ রোপণ</div>
+          </div>
+          <div class="bg-brand-800/40 p-3 rounded-lg border border-brand-700/40 text-center">
+            <div class="text-xl font-bold text-asGold">১০০%</div>
+            <div class="text-xs text-gray-300" data-i18n="statTransparency">স্বচ্ছতা ও সততা</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Donation Box -->
+      <div class="lg:col-span-5 bg-white text-gray-800 rounded-2xl p-6 shadow-2xl border border-gray-100">
+        <div class="border-b pb-4 mb-4">
+          <h3 class="text-xl font-bold text-brand-900 flex items-center gap-2">
+            <i data-lucide="hand-heart" class="w-5 h-5 text-brand-600"></i>
+            <span data-i18n="quickDonateTitle">সহযোগিতার হাত বাড়ান</span>
+          </h3>
+          <p class="text-xs text-gray-500 mt-1" data-i18n="quickDonateSub">আপনার যেকোনো পরিমাণ অনুদান মানুষের মুখে হাসি ফোটাতে পারে</p>
+        </div>
+
+        <form id="heroDonateForm" onsubmit="handleHeroDonate(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="labelFund">অনুদানের খাত নির্বাচন করুন *</label>
+            <select id="fundSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none font-medium">
+              <option value="সাধারণ অনুদান">সাধারণ তহবিল (General Fund)</option>
+              <option value="জলপাই গাছ প্রজেক্ট">১০০০ জলপাই গাছ রোপণ প্রজেক্ট</option>
+              <option value="বন্যা ত্রাণ">বন্যা ত্রাণ ও পুনর্বাসন</option>
+              <option value="শীতবস্ত্র">শীতবস্ত্র বিতরণ তহবিল</option>
+              <option value="শিক্ষা সহায়তা">শিশুদের শিক্ষা সহায়তা</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="labelAmount">অনুদানের পরিমাণ (টাকা) *</label>
+            <div class="grid grid-cols-4 gap-2 mb-2">
+              <button type="button" onclick="setAmount(100)" class="amt-btn border border-gray-300 py-1.5 rounded-md text-sm font-semibold hover:border-brand-600 hover:text-brand-600 transition">৳১০০</button>
+              <button type="button" onclick="setAmount(500)" class="amt-btn border border-gray-300 py-1.5 rounded-md text-sm font-semibold hover:border-brand-600 hover:text-brand-600 transition">৳৫০০</button>
+              <button type="button" onclick="setAmount(1000)" class="amt-btn border border-gray-300 py-1.5 rounded-md text-sm font-semibold hover:border-brand-600 hover:text-brand-600 transition">৳১০০০</button>
+              <button type="button" onclick="setAmount(5000)" class="amt-btn border border-gray-300 py-1.5 rounded-md text-sm font-semibold hover:border-brand-600 hover:text-brand-600 transition">৳৫০০০</button>
+            </div>
+            <input type="number" id="customAmount" placeholder="অথবা অন্য যেকোনো পরিমাণ লিখুন" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" required>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="labelPhone">আপনার মোবাইল নম্বর *</label>
+            <input type="tel" placeholder="017XXXXXXXX" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" required>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-lg shadow-lg transition flex items-center justify-center gap-2 text-base">
+            <span data-i18n="btnProceedDonate">অনুদানের জন্য এগিয়ে যান</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 Pillars Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="pillarsTitle">আমাদের মূল তিন কর্মক্ষেত্র</h2>
+        <p class="text-gray-600 mt-2 text-sm" data-i18n="pillarsSub">সুন্নাহ ও মানবকল্যাণের আদর্শে অনুপ্রাণিত হয়ে তালপত্র ফাউন্ডেশন তিনটি মূল ক্ষেত্রে কাজ করছে</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="trees" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="pillar1Title">পরিবেশ ও বৃক্ষরোপণ</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="pillar1Desc">
+            তাল গাছ রোপণের মাধ্যমে আমাদের যাত্রার সূচনা। সম্প্রতি রাজশাহী গোবিন্দপাড়া ইউনিয়নে সফলভাবে ১০০০টি জলপাই গাছের চারা রোপণ ও পরিচর্যা সম্পন্ন হয়েছে।
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="heart-handshake" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="pillar2Title">জরুরি সেবা ও ত্রাণ</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="pillar2Desc">
+            বন্যাদুর্গতদের মাঝে খাদ্য সামগ্রী বিতরণ, কনকনে শীতে অসহায় মানুষের মাঝে শীতবস্ত্র উপহার এবং যেকোনো জাতীয় দুর্যোগে মানুষের পাশে দাঁড়ানো।
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="smile" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="pillar3Title">শিক্ষা ও সামাজিক আনন্দ</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="pillar3Desc">
+            অসহায় শিশুদের শিক্ষার খরচ জোগানো, ঈদে খাদ্য ও ঈদসামগ্রী উপহার এবং ঈদের পূর্বে শিশুদের জন্য বিনামূল্যে 'মেহেদী উৎসব'-এর আয়োজন।
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section with Photo Uploaders -->
+  <section id="projects" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-brand-600 font-bold text-xs tracking-wider uppercase" data-i18n="projectsTag">চলমান ও সফল সামাজিক প্রকল্পসমূহ</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1" data-i18n="projectsTitle">তালপত্র ফাউন্ডেশনের কাজসমূহ</h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <button onclick="filterProjects('all')" class="project-tab active-tab bg-brand-600 text-white px-4 py-2 rounded-lg" data-i18n="tabAll">সবগুলো</button>
+          <button onclick="filterProjects('trees')" class="project-tab bg-white text-gray-700 border hover:bg-gray-100 px-4 py-2 rounded-lg" data-i18n="tabTrees">বৃক্ষরোপণ</button>
+          <button onclick="filterProjects('relief')" class="project-tab bg-white text-gray-700 border hover:bg-gray-100 px-4 py-2 rounded-lg" data-i18n="tabRelief">ত্রাণ ও সেবা</button>
+          <button onclick="filterProjects('social')" class="project-tab bg-white text-gray-700 border hover:bg-gray-100 px-4 py-2 rounded-lg" data-i18n="tabSocial">শিক্ষা ও উৎসব</button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Jalpai Tree Plantation Card -->
+        <div class="project-card trees bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col">
+          <div class="relative h-52 bg-gray-200">
+            <img id="img-jalpai" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="জলপাই গাছ রোপণ" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full" data-i18n="badgeSuccess">সফল প্রজেক্ট</span>
+            
+            <label class="absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 text-white text-xs px-2.5 py-1.5 rounded-md cursor-pointer flex items-center gap-1 backdrop-blur-sm">
+              <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+              <span data-i18n="btnChangeImg">ছবি পরিবর্তন</span>
+              <input type="file" class="hidden" accept="image/*" onchange="previewImage(event, 'img-jalpai')">
+            </label>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900" data-i18n="p1Title">রাজশাহী গোবیندপাড়ায় ১০০০টি জলপাই গাছ রোপণ</h3>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed" data-i18n="p1Desc">
+                রাজশাহীর গোবیندপাড়া ইউনিয়নে প্রায় ১০০০টি জলপাই গাছের চারা সফলভাবে রোপণ ও স্থানীয়দের মাঝে পরিচর্যার জন্য হস্তান্তর করা হয়েছে।
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-gray-600 mb-1">
+                <span data-i18n="p1Target">লক্ষ্যমাত্রা: ১০০০টি গাছ</span>
+                <span class="text-brand-600" data-i18n="p1Complete">১০০% সম্পন্ন</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                <div class="bg-brand-600 h-full w-full"></div>
+              </div>
+            </div>
+
+            <button onclick="openModal('জলপাই গাছ প্রজেক্ট')" class="w-full bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold py-2.5 rounded-lg border border-brand-200 transition text-sm flex items-center justify-center gap-1">
+              <span data-i18n="btnDonateTree">পরবর্তী রোপণে অনুদান দিন</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Flood Relief Card -->
+        <div class="project-card relief bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col">
+          <div class="relative h-52 bg-gray-200">
+            <img id="img-flood" src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=800&q=80" alt="বন্যা ত্রাণ" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full" data-i18n="badgeEmergency">জরুরি প্রকল্প</span>
+            
+            <label class="absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 text-white text-xs px-2.5 py-1.5 rounded-md cursor-pointer flex items-center gap-1 backdrop-blur-sm">
+              <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+              <span data-i18n="btnChangeImg">ছবি পরিবর্তন</span>
+              <input type="file" class="hidden" accept="image/*" onchange="previewImage(event, 'img-flood')">
+            </label>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900" data-i18n="p2Title">বন্যাদুর্গত এলাকায় জরুরি খাদ্য সহায়তা</h3>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed" data-i18n="p2Desc">
+                বন্যা প্লাবিত অঞ্চলের অসহায় পরিবারগুলোর মাঝে শুকনো খাবার, বিশুদ্ধ পানি ও জরুরি ওষুধ সামগ্রী পৌঁছে দেওয়ার বিশেষ উদ্যোগ।
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-gray-600 mb-1">
+                <span>সংগৃহীত: ৳১,৫০,০০০</span>
+                <span class="text-brand-600">লক্ষ্য: ৳২,০০,০০০</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                <div class="bg-brand-600 h-full w-3/4"></div>
+              </div>
+            </div>
+
+            <button onclick="openModal('বন্যা ত্রাণ')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg transition text-sm flex items-center justify-center gap-1">
+              <span data-i18n="btnDonateRelief">ত্রাণ তহবিলে অনুদান দিন</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Free Eid Mehendi Festival Card -->
+        <div class="project-card social bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col">
+          <div class="relative h-52 bg-gray-200">
+            <img id="img-mehendi" src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="মেহেদী উৎসব" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full" data-i18n="badgeFest">বার্ষিক আনন্দ উৎসব</span>
+            
+            <label class="absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 text-white text-xs px-2.5 py-1.5 rounded-md cursor-pointer flex items-center gap-1 backdrop-blur-sm">
+              <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+              <span data-i18n="btnChangeImg">ছবি পরিবর্তন</span>
+              <input type="file" class="hidden" accept="image/*" onchange="previewImage(event, 'img-mehendi')">
+            </label>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900" data-i18n="p3Title">শিশুদের জন্য বিনামূল্যে 'মেহেদী উৎসব'</h3>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed" data-i18n="p3Desc">
+                পবিত্র ঈদের আগের রাতে কোমলমতি শিশুদের ঈদ আনন্দ বাড়িয়ে দিতে তালপত্র ফাউন্ডেশনের উদ্যোগে বিনামূল্যে মেহেদী উৎসব।
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-gray-600 mb-1">
+                <span>উপকারভোগী শিশু: ৫০০+</span>
+                <span class="text-purple-600 font-semibold">ফ্রি ইভেন্ট</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                <div class="bg-purple-600 h-full w-full"></div>
+              </div>
+            </div>
+
+            <button onclick="openModal('ঈদ উৎসব')" class="w-full bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold py-2.5 rounded-lg border border-brand-200 transition text-sm">
+              <span data-i18n="btnDonateFest">উৎসব তহবিলে শরিক হন</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Payment Accounts Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="payTitle">অনুদানের অফিশিয়াল হিসাব ও নম্বরসমূহ</h2>
+        <p class="text-gray-600 mt-2 text-sm" data-i18n="paySub">স্বচ্ছতার সাথে অনুদান পাঠাতে আমাদের অফিশিয়াল বিকাশ, নগদ বা ব্যাংক অ্যাকাউন্টে পেমেন্ট করুন</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Mobile Banking -->
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center font-bold text-xl">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">মোবাইল ব্যাংকিং (bKash / Nagad)</h3>
+              <p class="text-xs text-gray-500">পার্সোনাল ও মার্চেন্ট নম্বরসমূহ</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-pink-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">bKash Personal</span>
+                  <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">Nagad</span>
+                </div>
+                <div class="text-lg font-mono font-bold text-gray-800 mt-1">01700-000000</div>
+                <div class="text-xs text-gray-500">তালপত্র ফাউন্ডেশন (প্রধান তহবিল)</div>
+              </div>
+              <button onclick="copyToClipboard('01700000000', 'নম্বর ১')" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+              </button>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-gray-200 flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-pink-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">bKash Personal</span>
+                </div>
+                <div class="text-lg font-mono font-bold text-gray-800 mt-1">01800-000000</div>
+                <div class="text-xs text-gray-500">জরুরি ত্রাণ ও বৃক্ষরোপণ অ্যাকাউন্ট</div>
+              </div>
+              <button onclick="copyToClipboard('01800000000', 'নম্বর ২')" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Account -->
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center font-bold text-xl">
+              <i data-lucide="building-2" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">ব্যাংক অ্যাকাউন্ট ডিটেইলস</h3>
+              <p class="text-xs text-gray-500">যেকোনো ব্যাংক থেকে সরাসরি ট্রান্সফার করুন</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-gray-200 space-y-3 text-sm">
+            <div class="flex justify-between border-b pb-2">
+              <span class="text-gray-500">অ্যাকোউন্টের নাম:</span>
+              <span class="font-bold text-gray-800">TALPOTRO FOUNDATION</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="text-gray-500">অ্যাকোউন্ট নম্বর:</span>
+              <span class="font-bold font-mono text-brand-700">2050 7710 0000 0000</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="text-gray-500">ব্যাংকের নাম:</span>
+              <span class="font-semibold text-gray-800">Islami Bank Bangladesh PLC</span>
+            </div>
+            <div class="flex justify-between border-b pb-2">
+              <span class="text-gray-500">শাখা (Branch):</span>
+              <span class="font-semibold text-gray-800">Rajshahi Branch</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">রাউটিং নম্বর:</span>
+              <span class="font-mono text-gray-800">125270000</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Popup Modal with 3 Tabs (bKash, Nagad, Bank Account) -->
+  <div id="donateModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <h3 id="modalTitle" class="text-xl font-bold text-brand-900 mb-1">অনুদানের বিবরণ</h3>
+      <p class="text-xs text-gray-500 mb-4" data-i18n="modalSub">পছন্দের পেমেন্ট মেথড সিলেক্ট করে অনুদান পাঠাতে পারেন</p>
+
+      <!-- 3 Payment Tabs -->
+      <div class="grid grid-cols-3 gap-2 mb-4 bg-gray-100 p-1 rounded-xl text-xs font-bold">
+        <button id="tabBkashBtn" onclick="switchPayTab('bkash')" class="py-2.5 rounded-lg bg-pink-600 text-white transition flex items-center justify-center gap-1 font-bold">
+          <span>bKash (বিকাশ)</span>
+        </button>
+        <button id="tabNagadBtn" onclick="switchPayTab('nagad')" class="py-2.5 rounded-lg bg-white text-gray-700 hover:bg-gray-200 transition flex items-center justify-center gap-1">
+          <span>Nagad (নগদ)</span>
+        </button>
+        <button id="tabBankBtn" onclick="switchPayTab('bank')" class="py-2.5 rounded-lg bg-white text-gray-700 hover:bg-gray-200 transition flex items-center justify-center gap-1">
+          <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+          <span>ব্যাংক অ্যাকাউন্ট</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: bKash -->
+      <div id="tabBkash" class="pay-tab-content bg-pink-50 border border-pink-200 p-4 rounded-xl mb-4 text-xs text-pink-900 space-y-1">
+        <p class="font-bold">bKash Personal (বিকাশ পার্সোনাল):</p>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-sm font-mono font-bold text-pink-700">01700-000000</span>
+          <button onclick="copyToClipboard('01700000000', 'bKash Number')" class="bg-pink-600 text-white px-2.5 py-1 rounded text-[10px] font-bold">Copy</button>
+        </div>
+        <p class="text-[11px] text-gray-600 mt-1">Send Money করার পর প্রাপ্ত ট্রানজেকশন আইডি (TrxID) দিয়ে নিচে কনফার্ম করুন।</p>
+      </div>
+
+      <!-- Tab 2: Nagad -->
+      <div id="tabNagad" class="pay-tab-content hidden bg-orange-50 border border-orange-200 p-4 rounded-xl mb-4 text-xs text-orange-900 space-y-1">
+        <p class="font-bold">Nagad Personal (নগদ পার্সোনাল):</p>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-sm font-mono font-bold text-orange-700">01700-000000</span>
+          <button onclick="copyToClipboard('01700000000', 'Nagad Number')" class="bg-orange-600 text-white px-2.5 py-1 rounded text-[10px] font-bold">Copy</button>
+        </div>
+        <p class="text-[11px] text-gray-600 mt-1">Send Money করার পর প্রাপ্ত ট্রানজেকশন আইডিটি নিচে লিখুন।</p>
+      </div>
+
+      <!-- Tab 3: Bank Account -->
+      <div id="tabBank" class="pay-tab-content hidden bg-blue-50 border border-blue-200 p-4 rounded-xl mb-4 text-xs text-blue-900 space-y-1.5">
+        <div class="font-bold text-blue-900 border-b border-blue-200 pb-1 flex justify-between">
+          <span>Islami Bank Bangladesh PLC</span>
+          <span class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded">Official Bank</span>
+        </div>
+        <div class="flex justify-between items-center text-[11px]">
+          <span class="text-gray-600">Account Name:</span>
+          <span class="font-bold">TALPOTRO FOUNDATION</span>
+        </div>
+        <div class="flex justify-between items-center text-[11px]">
+          <span class="text-gray-600">A/C Number:</span>
+          <span class="font-mono font-bold text-blue-800">2050 7710 0000 0000</span>
+          <button onclick="copyToClipboard('2050771000000000', 'Bank Account Number')" class="bg-blue-600 text-white px-2 py-0.5 rounded text-[10px] font-bold">Copy</button>
+        </div>
+        <div class="flex justify-between items-center text-[11px]">
+          <span class="text-gray-600">Branch & Routing:</span>
+          <span class="font-semibold">Rajshahi (Routing: 125270000)</span>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form onsubmit="submitTransaction(event)" class="space-y-3 text-sm">
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="lblDonorName">আপনার নাম *</label>
+          <input type="text" placeholder="আপনার পুরো নাম লিখুন" class="w-full border rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-brand-600 outline-none" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="lblDonorPhone">মোবাইল নম্বর *</label>
+          <input type="tel" placeholder="017XXXXXXXX" class="w-full border rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-brand-600 outline-none" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1" data-i18n="lblDonorAmount">অনুদানের পরিমাণ (টাকা) *</label>
+          <input type="number" id="modalAmountInput" placeholder="৳" class="w-full border rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-brand-600 outline-none" required>
+        </div>
+        <div>
+          <label id="trxLabel" class="block text-xs font-semibold text-gray-700 mb-1">bKash ট্রানজেকশন আইডি (TrxID) *</label>
+          <input type="text" placeholder="যেমন: 9J7X8KLM অথবা ব্যাংক রেফারেন্স" class="w-full border rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-brand-600 outline-none" required>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-lg transition text-sm mt-2 flex items-center justify-center gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span data-i18n="btnConfirmDonate">অনুদানের তথ্য নিশ্চিত করুন</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-white font-bold text-lg">
+          <i data-lucide="trees" class="w-6 h-6 text-brand-600"></i>
+          <span>তালপত্র ফাউন্ডেশন</span>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          একটি অরাজনৈতিক, অলাভজনক সামাজিক ও মানবকল্যাণমূলক সংগঠন। শিক্ষা, সমাজসেবা ও পরিবেশ রক্ষায় আমরা অঙ্গীকারবদ্ধ।
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 text-sm">গুরুত্বপূর্ণ লিঙ্ক</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#about" class="hover:text-white transition">আমাদের সম্পর্কে</a></li>
+          <li><a href="#projects" class="hover:text-white transition">চলমান প্রজেক্ট</a></li>
+          <li><a href="#contact" class="hover:text-white transition">পেমেন্ট অ্যাকাউন্ট</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 text-sm">আমাদের কার্যক্রম</h4>
+        <ul class="space-y-2 text-xs">
+          <li>১০০০ জলপাই গাছ রোপণ</li>
+          <li>বন্যা ত্রাণ ও সাহায্য</li>
+          <li>বিনামূল্যে মেহেন্দী উৎসব</li>
+          <li>শীতবস্ত্র বিতরণ</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 text-sm">যোগাযোগ</h4>
+        <p class="text-xs text-gray-400">গোবিন্দপাড়া ইউনিয়ন, রাজশাহী, বাংলাদেশ</p>
+        <p class="text-xs text-gray-400 mt-1">ইমেইল: info@talpotro.org</p>
+        <p class="text-xs text-gray-400 mt-1">ফোন: +880 1700-000000</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
+      © ২০২৬ তালপত্র ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    let currentLang = 'bn';
+
+    const translations = {
+      bn: {
+        topReg: "সরকারী নিবন্ধিত অরাজনৈতিক ও অলাভজনক সামাজিক সংগঠন",
+        topMembers: "১০০০+ সক্রিয় সদস্য",
+        navHome: "হোম",
+        navAbout: "আমাদের কথা",
+        navActivities: "কার্যক্রম",
+        navProjects: "প্রকল্পসমূহ",
+        navGallery: "গ্যালারি",
+        navInvolved: "যুক্ত হোন",
+        navBlogs: "ব্লগ",
+        navNotice: "নোটিশ",
+        navContact: "যোগাযোগ",
+        btnDonate: "দান করুন",
+        heroTag: "তাল গাছ রোপণ দিয়ে শুরু, এখন সমগ্র সমাজসেবায়",
+        heroTitle1: "সৃষ্টিকর্তার সন্তুষ্টি অর্জনে",
+        heroTitle2: "মানুষ ও প্রকৃতির সেবায় আমরা",
+        heroDesc: "তালপত্র ফাউন্ডেশন ১০০০+ নিবেদিতপ্রাণ সদস্যের একটি সামাজিক পরিবার। আমরা বৃক্ষরোপণ, দুর্যোগে ত্রাণ বিতরণ, শীতবস্ত্র উপহার, বিনামূল্যে মেহেদী উৎসব এবং শিশুদের শিক্ষায় সহায়তা প্রদানে নিরলস কাজ করে যাচ্ছি।",
+        btnKnowMore: "আমাদের সম্পর্কে জানুন",
+        btnAllActivities: "সকল কার্যক্রম",
+        statMembers: "সক্রিয় সদস্য",
+        statOlive: "জলপাই গাছ রোপণ",
+        statTransparency: "স্বচ্ছতা ও সততা",
+        quickDonateTitle: "সহযোগিতার হাত বাড়ান",
+        quickDonateSub: "আপনার যেকোনো পরিমাণ অনুদান মানুষের মুখে হাসি ফোটাতে পারে",
+        labelFund: "অনুদানের খাত নির্বাচন করুন *",
+        labelAmount: "অনুদানের পরিমাণ (টাকা) *",
+        labelPhone: "আপনার মোবাইল নম্বর *",
+        btnProceedDonate: "অনুদানের জন্য এগিয়ে যান",
+        pillarsTitle: "আমাদের মূল তিন কর্মক্ষেত্র",
+        pillarsSub: "সুন্নাহ ও মানবকল্যাণের আদর্শে অনুপ্রাণিত হয়ে তালপত্র ফাউন্ডেশন তিনটি মূল ক্ষেত্রে কাজ করছে",
+        pillar1Title: "পরিবেশ ও বৃক্ষরোপণ",
+        pillar1Desc: "তাল গাছ রোপণের মাধ্যমে আমাদের যাত্রার সূচনা। সম্প্রতি রাজশাহী গোবিন্দপাড়া ইউনিয়নে সফলভাবে ১০০০টি জলপাই গাছের চারা রোপণ ও পরিচর্যা সম্পন্ন হয়েছে।",
+        pillar2Title: "জরুরি সেবা ও ত্রাণ",
+        pillar2Desc: "বন্যাদুর্গতদের মাঝে খাদ্য সামগ্রী বিতরণ, কনকনে শীতে অসহায় মানুষের মাঝে শীতবস্ত্র উপহার এবং যেকোনো জাতীয় দুর্যোগে মানুষের পাশে দাঁড়ানো।",
+        pillar3Title: "শিক্ষা ও সামাজিক আনন্দ",
+        pillar3Desc: "অসহায় শিশুদের শিক্ষার খরচ জোগানো, ঈদে খাদ্য ও ঈদসামগ্রী উপহার এবং ঈদের পূর্বে শিশুদের জন্য বিনামূল্যে 'মেহেদী উৎসব'-এর আয়োজন।",
+        projectsTag: "চলমান ও সফল সামাজিক প্রকল্পসমূহ",
+        projectsTitle: "তালপত্র ফাউন্ডেশনের কাজসমূহ",
+        tabAll: "সবগুলো",
+        tabTrees: "বৃক্ষরোপণ",
+        tabRelief: "ত্রাণ ও সেবা",
+        tabSocial: "শিক্ষা ও উৎসব",
+        badgeSuccess: "সফল প্রজেক্ট",
+        badgeEmergency: "জরুরি প্রকল্প",
+        badgeFest: "বার্ষিক আনন্দ উৎসব",
+        btnChangeImg: "ছবি পরিবর্তন",
+        p1Title: "রাজশাহী গোবিন্দপাড়ায় ১০০০টি জলপাই গাছ রোপণ",
+        p1Desc: "রাজশাহীর গোবিন্দপাড়া ইউনিয়নে প্রায় ১০০০টি জলপাই গাছের চারা সফলভাবে রোপণ ও স্থানীয়দের মাঝে পরিচর্যার জন্য হস্তান্তর করা হয়েছে।",
+        p1Target: "লক্ষ্যমাত্রা: ১০০০টি গাছ",
+        p1Complete: "১০০% সম্পন্ন",
+        btnDonateTree: "পরবর্তী রোপণে অনুদান দিন",
+        p2Title: "বন্যাদুর্গত এলাকায় জরুরি খাদ্য সহায়তা",
+        p2Desc: "বন্যা প্লাবিত অঞ্চলের অসহায় পরিবারগুলোর মাঝে শুকনো খাবার, বিশুদ্ধ পানি ও জরুরি ওষুধ সামগ্রী পৌঁছে দেওয়ার বিশেষ উদ্যোগ।",
+        btnDonateRelief: "ত্রাণ তহবিলে অনুদান দিন",
+        p3Title: "শিশুদের জন্য বিনামূল্যে 'মেহেদী উৎসব'",
+        p3Desc: "পবিত্র ঈদের আগের রাতে কোমলমতি শিশুদের ঈদ আনন্দ বাড়িয়ে দিতে তালপত্র ফাউন্ডেশনের উদ্যোগে বিনামূল্যে মেহেদী উৎসব।",
+        btnDonateFest: "উৎসব তহবিলে শরিক হন",
+        payTitle: "অনুদানের অফিশিয়াল হিসাব ও নম্বরসমূহ",
+        paySub: "স্বচ্ছতার সাথে অনুদান পাঠাতে আমাদের অফিশিয়াল বিকাশ, নগদ বা ব্যাংক অ্যাকাউন্টে পেমেন্ট করুন"
+      },
+      en: {
+        topReg: "Government Registered Non-Political & Non-Profit Organization",
+        topMembers: "1000+ Active Members",
+        navHome: "Home",
+        navAbout: "About Us",
+        navActivities: "Activities",
+        navProjects: "Projects",
+        navGallery: "Gallery",
+        navInvolved: "Get Involved",
+        navBlogs: "Blogs",
+        navNotice: "Notice",
+        navContact: "Contact",
+        btnDonate: "Donate Now",
+        heroTag: "Started with Palm Trees, Serving Humanity Today",
+        heroTitle1: "In Pursuit of Divine Blessings",
+        heroTitle2: "Serving Humanity & Nature Together",
+        heroDesc: "Talpotro Foundation is a social welfare family of over 1,000+ dedicated members. We continuously work on tree plantation, flood relief, winter apparel, free Eid Mehendi festival, and child education support.",
+        btnKnowMore: "Know More About Us",
+        btnAllActivities: "All Activities",
+        statMembers: "Active Members",
+        statOlive: "Olive Trees Planted",
+        statTransparency: "100% Transparency",
+        quickDonateTitle: "Make Your Donation",
+        quickDonateSub: "Your contribution brings hope and smiles to those in need",
+        labelFund: "Select Donation Fund *",
+        labelAmount: "Donation Amount (BDT) *",
+        labelPhone: "Your Mobile Number *",
+        btnProceedDonate: "Proceed to Donate",
+        pillarsTitle: "Our 3 Core Operational Pillars",
+        pillarsSub: "Guided by Islamic values and human welfare, Talpotro Foundation focuses on three core areas",
+        pillar1Title: "Environment & Plantation",
+        pillar1Desc: "Our journey started with Palm tree plantation. Recently we successfully planted 1,000 Olive saplings in Govindapara Union, Rajshahi.",
+        pillar2Title: "Emergency Relief & Aid",
+        pillar2Desc: "Providing dry food packages to flood victims, winter blankets to vulnerable families, and standing by people during national crises.",
+        pillar3Title: "Education & Social Joy",
+        pillar3Desc: "Supporting education costs for underprivileged children, distributing Eid gift packages, and organizing free Eid Mehendi festivals.",
+        projectsTag: "Ongoing & Successful Projects",
+        projectsTitle: "Activities of Talpotro Foundation",
+        tabAll: "All Projects",
+        tabTrees: "Tree Plantation",
+        tabRelief: "Relief & Service",
+        tabSocial: "Education & Fest",
+        badgeSuccess: "Successful Project",
+        badgeEmergency: "Emergency Relief",
+        badgeFest: "Annual Festival",
+        btnChangeImg: "Change Photo",
+        p1Title: "1,000 Olive Trees Planted in Govindapara, Rajshahi",
+        p1Desc: "Successfully planted 1,000 Olive saplings in Govindapara Union, Rajshahi and handed them over to local stewards.",
+        p1Target: "Target: 1,000 Trees",
+        p1Complete: "100% Completed",
+        btnDonateTree: "Sponsor Next Plantation",
+        p2Title: "Emergency Food Relief for Flood Victims",
+        p2Desc: "Special relief initiative providing dry food packages, clean drinking water, and essential medicines to flood-affected families.",
+        btnDonateRelief: "Donate to Relief Fund",
+        p3Title: "Free Eid 'Mehendi Festival' for Children",
+        p3Desc: "An annual initiative on Chand Raat providing free Henna/Mehendi artwork to spread Eid joy among young children.",
+        btnDonateFest: "Join Festival Fund",
+        payTitle: "Official Payment & Donation Accounts",
+        paySub: "Make secure and transparent donations to our official bKash, Nagad, or Bank accounts"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'bn' ? 'en' : 'bn';
+      document.getElementById('langBtnText').innerText = currentLang === 'bn' ? 'EN' : 'বাংলা';
+
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          element.innerText = translations[currentLang][key];
+        }
+      });
+    }
+
+    function switchPayTab(tab) {
+      document.querySelectorAll('.pay-tab-content').forEach(el => el.classList.add('hidden'));
+
+      document.getElementById('tabBkashBtn').className = 'py-2.5 rounded-lg bg-white text-gray-700 hover:bg-gray-200 transition flex items-center justify-center gap-1';
+      document.getElementById('tabNagadBtn').className = 'py-2.5 rounded-lg bg-white text-gray-700 hover:bg-gray-200 transition flex items-center justify-center gap-1';
+      document.getElementById('tabBankBtn').className = 'py-2.5 rounded-lg bg-white text-gray-700 hover:bg-gray-200 transition flex items-center justify-center gap-1';
+
+      if (tab === 'bkash') {
+        document.getElementById('tabBkash').classList.remove('hidden');
+        document.getElementById('tabBkashBtn').className = 'py-2.5 rounded-lg bg-pink-600 text-white transition flex items-center justify-center gap-1 font-bold';
+        document.getElementById('trxLabel').innerText = 'bKash ট্রানজেকশন আইডি (TrxID) *';
+      } else if (tab === 'nagad') {
+        document.getElementById('tabNagad').classList.remove('hidden');
+        document.getElementById('tabNagadBtn').className = 'py-2.5 rounded-lg bg-orange-600 text-white transition flex items-center justify-center gap-1 font-bold';
+        document.getElementById('trxLabel').innerText = 'নগদ ট্রানজেকশন আইডি (TrxID) *';
+      } else if (tab === 'bank') {
+        document.getElementById('tabBank').classList.remove('hidden');
+        document.getElementById('tabBankBtn').className = 'py-2.5 rounded-lg bg-blue-600 text-white transition flex items-center justify-center gap-1 font-bold';
+        document.getElementById('trxLabel').innerText = 'ব্যাংক ডিপোজিট রেফারেন্স / অ্যাকাউন্ট নম্বর *';
+      }
+    }
+
+    function setAmount(amt) {
+      document.getElementById('customAmount').value = amt;
+    }
+
+    function handleHeroDonate(e) {
+      e.preventDefault();
+      const fund = document.getElementById('fundSelect').value;
+      const amt = document.getElementById('customAmount').value;
+      openModal(fund, amt);
+    }
+
+    function openModal(fundName = 'সাধারণ অনুদান', amount = '') {
+      document.getElementById('modalTitle').innerText = fundName + ' - অনুদানের বিবরণ';
+      if(amount) {
+        document.getElementById('modalAmountInput').value = amount;
+      }
+      document.getElementById('donateModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('donateModal').classList.add('hidden');
+    }
+
+    function copyToClipboard(text, label) {
+      navigator.clipboard.writeText(text);
+      alert(label + ' কপি করা হয়েছে: ' + text);
+    }
+
+    function submitTransaction(e) {
+      e.preventDefault();
+      alert('ধন্যবাদ! আপনার অনুদানের তথ্য জমা নেওয়া হয়েছে। আমরা শীঘ্রই যাচাই করে নিশ্চিত করব।');
+      closeModal();
+    }
+
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const tabs = document.querySelectorAll('.project-tab');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-brand-600', 'text-white');
+        tab.classList.add('bg-white', 'text-gray-700');
+      });
+      event.target.classList.remove('bg-white', 'text-gray-700');
+      event.target.classList.add('bg-brand-600', 'text-white');
+
+      cards.forEach(card => {
+        if(category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function previewImage(event, targetImgId) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById(targetImgId).src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>
